@@ -21,9 +21,7 @@ class UserServiceTest {
                 .major("12")
                 .grade("23")
                 .birth(new Date())
-
                 .profile_photo("ssd")
-                .create_at(new Date())
                 .build();
 
         userService.doInsert(userDto);

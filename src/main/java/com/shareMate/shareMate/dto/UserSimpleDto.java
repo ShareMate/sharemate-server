@@ -1,6 +1,7 @@
 package com.shareMate.shareMate.dto;
 
 import com.shareMate.shareMate.entity.UserEntity;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;

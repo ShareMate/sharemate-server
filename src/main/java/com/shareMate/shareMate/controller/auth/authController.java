@@ -13,17 +13,18 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Map;
 @RestController
 @RequiredArgsConstructor
+@RequestMapping("/users")
 public class authController {
     private final UserService userService;
     private final SignService signService;
 
     @ApiOperation(value = "회원가입",notes = "회원가입 버튼 클릭시 회원가입을 진행하는 요청입니다.")
-
     @PostMapping("/register")
     public Map doUserList(@RequestBody UserDto userDto){
 

@@ -123,7 +123,7 @@ public class UserService {
 
     public UserDto getUserDetail(int num) {
         Optional<UserEntity> member = userRepository.findById(num);
-        return new UserDto(member.get().getUser_id(), member.get().getEmail(), member.get().getPwd(), member.get().getName(), member.get().getMajor(), member.get().getGrade(), member.get().getBirth(), member.get().getProfile_photo(), member.get().getCreate_at());
+        return new UserDto( member.get().getEmail(), member.get().getPwd(), member.get().getName(), member.get().getMajor(), member.get().getGrade(), member.get().getBirth(), member.get().getProfile_photo());
 
     }
 
@@ -140,6 +140,20 @@ public class UserService {
     public FavorDto getFavor(int num) {
         Optional<FavorEntity> member = favorRepository.findById(num);
         FavorDto res = new FavorDto();
+//        return new FavorDto(
+//                member.get().getUser_id(),
+//                member.get().getSleep_time(),
+//                member.get().getSmoking(),
+//                member.get().getWakeup_time(),
+//                member.get().getDrinking(),
+//                member.get().getStudy_time(),
+//                member.get().getCleanness(),
+//                member.get().getPrefered_age(),
+//                member.get().getPrefered_major(),
+//                member.get().getSnoring(),
+//                member.get().getMbti(),
+//                member.get().getSelf_intro()
+//                );
         res.setCleanness(member.get().getCleanness());
         res.setMbti(member.get().getMbti());
         res.setUser_id(member.get().getUser_id());

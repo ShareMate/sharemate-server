@@ -3,6 +3,7 @@ package com.shareMate.shareMate.dto;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import io.swagger.annotations.ApiParam;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -36,8 +37,22 @@ public class FavorDto {
     private String mbti;
     @ApiModelProperty(value = "자기소개", required = true, example = "string")
     private String self_intro;
-    public FavorDto(){};
 
+//    @Builder
+//    public FavorDto(int user_id, int sleep_time, int smoking, int wakeup_time, int drinking, int study_time, int cleanness, int prefered_age, int prefered_major, int snoring, String mbti, String self_intro) {
+//        this.user_id = user_id;
+//        this.sleep_time = sleep_time;
+//        this.smoking = smoking;
+//        this.wakeup_time = wakeup_time;
+//        this.drinking = drinking;
+//        this.study_time = study_time;
+//        this.cleanness = cleanness;
+//        this.prefered_age = prefered_age;
+//        this.prefered_major = prefered_major;
+//        this.snoring = snoring;
+//        this.mbti = mbti;
+//        this.self_intro = self_intro;
+//    }
 }
 
 

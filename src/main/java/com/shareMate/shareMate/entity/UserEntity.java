@@ -2,6 +2,7 @@ package com.shareMate.shareMate.entity;
 
 
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -25,24 +26,31 @@ public class UserEntity implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int user_id;
-//    @Column(nullable = false)
-    private String email;
-//    @Column(nullable = false)
-    private String pwd;
-//    @Column(nullable = false)
-    private String name;
-//    @Column(nullable = false)
-    private String major;
-//    @Column(nullable = false)
-    private String grade;
-//    @Column(nullable = false)
-    private Date birth;
-//    @Column(nullable = false)
 
-//    @Column(nullable = false)
+    @Column(nullable = false)
+    private String email;
+    @Column(nullable = false)
+    private String pwd;
+
+    @Column(nullable = false)
+    private String name;
+
+    @Column(nullable = false)
+    private String major;
+
+    @Column(nullable = false)
+    private String grade;
+
+    @Column(nullable = false)
+    private Date birth;
+
+    @Column(nullable = false)
     private String profile_photo;
-//    @Column(nullable = false)
+
+
+    @CreationTimestamp // INSERT 시 자동으로 값을 채워줌
     private Date create_at;
+
     @OneToOne
     @JoinColumn(name="user_id")
     private FavorEntity favor;
