@@ -10,6 +10,7 @@ import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -34,12 +35,16 @@ public class authController {
     }
 
     @ApiOperation(value = "로그인(JWT 토큰 발급)",notes = "id,pw를 이용하여 로그인을 진행하고, jwt토큰을 발급합니다. ")
+    @ApiParam()
     @PostMapping("/login")
     public ResponseEntity<ResponseSignInDto> UserLogin(@RequestBody RequestLoginDto requestLoginDto){
         ResponseSignInDto responseSignInDto = signService.doLogin(requestLoginDto);
         System.out.println("프린트");
+        if(responseSignInDto.getAccessToken()==null){
 
-        return ResponseEntity.ok(responseSignInDto);
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(responseSignInDto);
+        }
+        else return ResponseEntity.status(HttpStatus.OK).body(responseSignInDto);
     }
 
 }

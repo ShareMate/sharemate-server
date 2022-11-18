@@ -3,14 +3,9 @@ package com.shareMate.shareMate.controller.group;
 import com.shareMate.shareMate.dto.*;
 
 import com.shareMate.shareMate.entity.GroupEntity;
-import com.shareMate.shareMate.entity.PostEntity;
-
 import com.shareMate.shareMate.service.GroupService;
-import com.shareMate.shareMate.service.PostService;
-
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiParam;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

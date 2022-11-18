@@ -41,13 +41,19 @@ public class SignService {
         System.out.println("lgser");
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
         UserEntity user = userRepository.findByEmail(requestLoginDto.toEntity().getEmail()).orElseThrow(()-> {throw new UsernameNotFoundException("유저 없음");});
-        String jwtAccToken = accTokenHelper.createToken( String.valueOf(user.getUser_id()));
-        String jwtRefToken =refTokenHelper.createToken( String.valueOf(user.getUser_id()));
-        //System.out.println("사인 서비스 토큰 "+ jwtRefToken);
-        //System.out.println("사인 서비스 토큰 "+ jwtAccToken);
+        if(encoder.matches(requestLoginDto.toEntity().getPwd(),user.getPwd()))
+        {
+            String jwtAccToken = accTokenHelper.createToken( String.valueOf(user.getUser_id()));
+            String jwtRefToken =refTokenHelper.createToken( String.valueOf(user.getUser_id()));
+            //System.out.println("사인 서비스 토큰 "+ jwtRefToken);
+            //System.out.println("사인 서비스 토큰 "+ jwtAccToken);
+            return new ResponseSignInDto(jwtAccToken,jwtRefToken);
+        }
+        else{
+            return new ResponseSignInDto(null,null);
 
+        }
 
-        return new ResponseSignInDto(jwtAccToken,jwtRefToken);
 
 
 //        if (user==null){
