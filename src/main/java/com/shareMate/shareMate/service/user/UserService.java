@@ -112,7 +112,7 @@ public class UserService {
         Optional<UserEntity> user =userRepository.findById(num);
         System.out.println(reqUpdateUserDto.getKakao_link());
         user.get().setKakao_link(reqUpdateUserDto.getKakao_link());
-        user.get().setProfile_photo(reqUpdateUserDto.getProfile_photo());
+
         user.get().setAge(reqUpdateUserDto.getAge());
         user.get().setGrade(reqUpdateUserDto.getGrade());
         user.get().setName(reqUpdateUserDto.getName());

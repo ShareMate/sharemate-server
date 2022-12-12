@@ -32,8 +32,6 @@ public class ReqUpdateUserDto {
     @ApiModelProperty(value= "카카오 오픈채팅 링크")
     private String kakao_link;
 
-    @ApiModelProperty(value = "프로필 사진")
-    private String profile_photo;
 
 
     public UserEntity toEntity(){
@@ -45,7 +43,7 @@ public class ReqUpdateUserDto {
 
                 .age(age)
                 .kakao_link(kakao_link)
-                .profile_photo(profile_photo)
+
                 .build();
         return userEntity;
     }
